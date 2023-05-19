@@ -124,7 +124,7 @@ void search(int ele)
         printf("\nLIST IS EMPTY");
     }
     p=start;
-    while(p->next!=NULL)
+    while(p!=NULL)
     {
         if(p->data==ele)
         {

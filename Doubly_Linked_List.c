@@ -10,7 +10,7 @@
 
  void insertAtFirstDLL(int ele)
  {
-    temp=(NODE*)malloc(sizeof (NODE*));
+    temp=(NODE*)malloc(sizeof(NODE*));
     temp->data=ele;
     if(start==NULL)
     {
@@ -29,7 +29,7 @@
 
  void insertAtLastDLL(int ele)
  {
-    temp=(NODE *)malloc(sizeof (NODE));
+    temp=(NODE *)malloc(sizeof(NODE*));
     temp->data=ele;
     temp->next=NULL;
     if(start==NULL)
@@ -39,6 +39,7 @@
     }
     else
     {
+        last->next=temp;
         temp->prev=last;
     }
     last=temp;
@@ -53,8 +54,8 @@
     }
     else
     {
-        printf("DELETED ELEMENT IS %d",p->data);
         p=start;
+        printf("DELETED ELEMENT IS %d",p->data);
         start=start->next;
         start->prev=NULL;
         free(p);
@@ -88,7 +89,7 @@
     else
     {
         p=start;
-        while(p->next!=NULL)
+        while(p!=NULL)
         {
             printf("%d ",p->data);
             p=p->next;
@@ -106,7 +107,7 @@
     else
     {
         p=last;
-        while(p->prev!=NULL)
+        while(p!=NULL)
         {
             printf("%d ",p->data);
             p=p->prev;
@@ -117,21 +118,21 @@
 
 void search(int ele)
 {
+    int i=1,flag=0;
     if(start==NULL)
     {
         printf("\nLIST IS EMPTY");
     }
-    int i=1,flag=0;
     p=start;
     while(p->next!=NULL)
     {
         if(p->data==ele)
         {
             flag=1;
-            i++;
             break;
         }
         p=p->next;
+        i++;
     }
     if(flag==0)
     {
@@ -162,7 +163,7 @@ int main()
 
       switch(choice)
       {
-        case 1: printf("Enter the element ");
+        case 1: printf("Enter the element\n");
                 scanf("%d",&n); 
                 printf("\n1.Insertion At First");
                 printf("\n2.Insertion At Last");
